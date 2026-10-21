@@ -1,0 +1,1049 @@
+:root {
+  --ink: #172033;
+  --muted: #647089;
+  --line: #dbe2ee;
+  --paper: #ffffff;
+  --wash: #f4f7fb;
+  --brand: #3157d5;
+  --brand-dark: #213c9d;
+  --success: #167c5a;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--wash); }
+a { color: inherit; }
+.hero { background: linear-gradient(135deg, #182858, #3157d5 62%, #5a80ef); color: white; }
+.hero-inner { max-width: 1160px; margin: auto; padding: 72px 24px 58px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .14em; font-weight: 700; font-size: .78rem; opacity: .8; }
+h1 { font-size: clamp(2.5rem, 7vw, 5.2rem); line-height: .98; margin: 12px 0 20px; }
+.lead { max-width: 800px; font-size: 1.15rem; line-height: 1.65; color: #e9efff; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.button { display: inline-flex; align-items: center; justify-content: center; padding: 12px 17px; border-radius: 10px; border: 1px solid currentColor; text-decoration: none; font-weight: 700; }
+.hero .button { color: white; }
+.hero .button.primary { background: white; color: var(--brand-dark); border-color: white; }
+.notice { max-width: 850px; font-size: .88rem; color: #d6e0ff; margin-top: 20px; }
+main { max-width: 1160px; margin: auto; padding: 0 24px 70px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: -28px; }
+.stats article { background: var(--paper); border: 1px solid var(--line); border-radius: 15px; padding: 22px; box-shadow: 0 8px 28px rgba(31, 47, 88, .08); }
+.stats strong { display: block; font-size: 2rem; }
+.stats span { color: var(--muted); }
+.controls { display: grid; grid-template-columns: 1fr 260px; gap: 12px; margin: 38px 0 12px; }
+input, select { width: 100%; padding: 13px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); font: inherit; }
+.result-count { color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.card { text-align: left; border: 1px solid var(--line); background: var(--paper); border-radius: 15px; padding: 19px; cursor: pointer; transition: transform .15s ease, box-shadow .15s ease; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(31,47,88,.10); }
+.card h3 { margin: 0 0 9px; font-size: 1.05rem; }
+.card p { color: var(--muted); line-height: 1.5; min-height: 4.5em; }
+.badge { display: inline-block; border-radius: 999px; background: #e8edff; color: var(--brand-dark); padding: 5px 9px; font-size: .75rem; font-weight: 700; }
+.metrics { display: flex; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 13px; font-size: .83rem; color: var(--muted); }
+.metrics strong { color: var(--ink); }
+.contribute { margin-top: 54px; padding: 30px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; }
+.contribute li { margin: 10px 0; line-height: 1.55; }
+.contribute .button.primary { background: var(--brand); color: white; border-color: var(--brand); }
+dialog { width: min(720px, calc(100vw - 32px)); border: 0; border-radius: 16px; padding: 28px; box-shadow: 0 30px 100px rgba(0,0,0,.3); }
+dialog::backdrop { background: rgba(12,20,40,.55); }
+.close { float: right; border: 0; background: none; font-size: 2rem; cursor: pointer; }
+.detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 18px 0; }
+.detail-grid div { background: var(--wash); border-radius: 10px; padding: 13px; }
+.detail-grid strong { display: block; font-size: 1.2rem; }
+@media (max-width: 720px) {
+  .stats, .controls { grid-template-columns: 1fr; }
+  .hero-inner { padding-top: 48px; }
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+}
+
+.card .community-badge {
+  background: #253044;
+  color: #ffffff;
+  border: 1px solid #253044;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.staging-note {
+  margin-top: 22px;
+  padding: 14px 16px;
+  border-left: 4px solid var(--brand);
+  background: var(--wash);
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.guide-layout {
+  display: grid;
+  gap: 18px;
+  padding-top: 38px;
+}
+
+.guide-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 26px;
+}
+
+.guide-card h2 {
+  margin-top: 0;
+}
+
+.guide-card p,
+.guide-card li {
+  line-height: 1.65;
+}
+
+.guide-card pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 10px;
+  background: #111a2e;
+  color: #edf2ff;
+}
+
+.warning-card {
+  border-left: 5px solid #c77a00;
+}
+
+.staging-card {
+  border-left: 5px solid var(--brand);
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+.card {
+  --category-background: #ffffff;
+  --category-border: #dbe2ee;
+  --category-accent: #3157d5;
+  --category-badge: #e8edff;
+
+  background: var(--category-background);
+  border-color: var(--category-border);
+  border-top: 5px solid var(--category-accent);
+}
+
+.card .badge-row .badge:first-child {
+  background: var(--category-badge);
+  color: var(--category-accent);
+}
+
+.category-dna {
+  --category-background: #eef5ff;
+  --category-border: #aac9ef;
+  --category-accent: #2869c7;
+  --category-badge: #dae9fc;
+}
+
+.category-expression,
+.category-bulk-expression {
+  --category-background: #fff4e9;
+  --category-border: #edc69a;
+  --category-accent: #b96512;
+  --category-badge: #ffe3c3;
+}
+
+.category-functional-genomics {
+  --category-background: #edf9f1;
+  --category-border: #acd8b8;
+  --category-accent: #267842;
+  --category-badge: #d7f0df;
+}
+
+.category-knowledge {
+  --category-background: #f5efff;
+  --category-border: #cbb5e9;
+  --category-accent: #7044ac;
+  --category-badge: #e8dcfa;
+}
+
+.category-literature {
+  --category-background: #fff0f4;
+  --category-border: #e8b5c4;
+  --category-accent: #ac3e61;
+  --category-badge: #f9dce4;
+}
+
+.category-multimodal {
+  --category-background: #eaf9fb;
+  --category-border: #a5d7dd;
+  --category-accent: #177684;
+  --category-badge: #d3eff2;
+}
+
+.category-network {
+  --category-background: #fff0ee;
+  --category-border: #eab3ab;
+  --category-accent: #af4437;
+  --category-badge: #f9d9d4;
+}
+
+.category-protein {
+  --category-background: #edf8f6;
+  --category-border: #a5d4cb;
+  --category-accent: #187361;
+  --category-badge: #d2ede7;
+}
+
+.category-rna {
+  --category-background: #fff9e7;
+  --category-border: #e3cb88;
+  --category-accent: #8a6810;
+  --category-badge: #f5e7b6;
+}
+
+.category-regulatory {
+  --category-background: #f0f1ff;
+  --category-border: #b7bae7;
+  --category-accent: #4c50ae;
+  --category-badge: #dedff8;
+}
+
+.category-single-cell,
+.category-single-cell-expression {
+  --category-background: #fff0fa;
+  --category-border: #e1b2d2;
+  --category-accent: #9f3e7f;
+  --category-badge: #f4daeb;
+}
+
+.category-other,
+.category-uncategorized {
+  --category-background: #f3f5f7;
+  --category-border: #c7cdd5;
+  --category-accent: #596576;
+  --category-badge: #e1e5ea;
+}
+
+.contribute {
+  scroll-margin-top: 24px;
+  margin-top: 64px;
+  padding: 34px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+
+.section-label {
+  margin: 0 0 8px;
+  color: var(--brand);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contribute h2 {
+  margin-top: 0;
+}
+
+.contribute-intro {
+  max-width: 800px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.instruction-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.instruction-card {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--wash);
+}
+
+.instruction-card.full-width {
+  grid-column: 1 / -1;
+}
+
+.instruction-card h3 {
+  margin: 8px 0 12px;
+}
+
+.instruction-card p,
+.instruction-card li {
+  line-height: 1.6;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.category-list {
+  font-weight: 650;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.cli-alternative {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.cli-alternative summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.cli-alternative pre,
+.instruction-card pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 10px;
+  background: #111a2e;
+  color: #edf2ff;
+}
+
+@media (max-width: 720px) {
+  .instruction-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .instruction-card.full-width {
+    grid-column: auto;
+  }
+
+  .contribute {
+    padding: 24px 18px;
+  }
+}
+
+/* Summary statistic color */
+.stats article {
+  background: #eaf0ff;
+  border-color: #afc2f2;
+  box-shadow: 0 8px 28px rgba(49, 87, 213, 0.12);
+}
+
+.stats strong {
+  color: #2448b8;
+}
+
+.stats span {
+  color: #53658f;
+}
+/* End summary statistic color */
+
+/* THEME TOGGLE */
+
+.theme-toggle {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  z-index: 1000;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+  padding: 0;
+
+  border: 1px solid rgba(23, 32, 51, .22);
+  border-radius: 50%;
+
+  color: #172033;
+  background: rgba(255, 255, 255, .94);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, .15);
+
+  font: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+
+  transition:
+    transform .15s ease,
+    background .15s ease,
+    color .15s ease,
+    border-color .15s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid rgba(129, 156, 255, .55);
+  outline-offset: 3px;
+}
+
+/*
+Only the page background changes in night mode.
+Cards, category palettes, badges and panels keep their original colors.
+*/
+
+html[data-theme="night"] {
+  background: #090f1c;
+}
+
+html[data-theme="night"] body {
+  background: #090f1c;
+}
+
+html[data-theme="night"] .theme-toggle {
+  color: #f5f7ff;
+  background: rgba(17, 24, 39, .96);
+  border-color: #475569;
+}
+
+@media (max-width: 720px) {
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+}
+
+/* NIGHT COLORED PANELS */
+
+/*
+Very subtle darkening:
+- preserves each category hue;
+- does not recolor text, borders, or badges;
+- avoids gray or washed-out cards.
+*/
+
+html[data-theme="night"] .card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+html[data-theme="night"] .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background: rgba(0, 0, 0, .01);
+
+  -webkit-backdrop-filter:
+    brightness(.88)
+    saturate(1.70);
+
+  backdrop-filter:
+    brightness(.88)
+    saturate(1.70);
+}
+
+html[data-theme="night"] .card > * {
+  position: relative;
+  z-index: 1;
+}
+
+html[data-theme="night"] .card:hover::before {
+  -webkit-backdrop-filter:
+    brightness(.92)
+    saturate(1.90);
+
+  backdrop-filter:
+    brightness(.92)
+    saturate(1.90);
+}
+
+
+/* HERO BACKGROUND IMAGE */
+
+.hero {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(3, 12, 32, .88) 0%,
+      rgba(3, 17, 43, .72) 48%,
+      rgba(3, 17, 43, .38) 100%
+    ),
+    url("hero-background.jpg");
+
+  background-position: center 46%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 720px) {
+  .hero {
+    background-position: 58% center;
+
+    background-image:
+      linear-gradient(
+        rgba(3, 12, 32, .78),
+        rgba(3, 12, 32, .78)
+      ),
+      url("hero-background.jpg");
+  }
+}
+
+
+/* THEME-AWARE HERO BRIGHTNESS */
+
+/*
+Day mode uses a lighter overlay, making the DNA image brighter.
+Night mode keeps a darker overlay for readability.
+*/
+
+.hero,
+html[data-theme="day"] .hero {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(3, 12, 32, .62) 0%,
+      rgba(3, 17, 43, .38) 48%,
+      rgba(3, 17, 43, .15) 100%
+    ),
+    url("hero-background.jpg");
+
+  background-position: center 46%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+html[data-theme="night"] .hero {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(3, 10, 28, .88) 0%,
+      rgba(3, 14, 36, .70) 48%,
+      rgba(3, 14, 36, .42) 100%
+    ),
+    url("hero-background.jpg");
+}
+
+@media (max-width: 720px) {
+  .hero,
+  html[data-theme="day"] .hero {
+    background-position: 58% center;
+
+    background-image:
+      linear-gradient(
+        rgba(3, 12, 32, .58),
+        rgba(3, 12, 32, .58)
+      ),
+      url("hero-background.jpg");
+  }
+
+  html[data-theme="night"] .hero {
+    background-image:
+      linear-gradient(
+        rgba(3, 10, 28, .80),
+        rgba(3, 10, 28, .80)
+      ),
+      url("hero-background.jpg");
+  }
+}
+
+/* CONTINUOUS HERO PAGE BACKGROUND */
+
+/*
+Continue the blue tones of the DNA hero into the page.
+The image itself is not repeated, so the content remains clear.
+*/
+
+html:not([data-theme]),
+html[data-theme="day"] {
+  background: #f5fafc;
+}
+
+html:not([data-theme]) body,
+html[data-theme="day"] body {
+  background:
+    radial-gradient(
+      circle at 75% 0%,
+      rgba(42, 181, 224, .20),
+      transparent 34rem
+    ),
+    linear-gradient(
+      180deg,
+      #0b3158 0,
+      #78b9d5 390px,
+      #d8edf5 650px,
+      #f5fafc 1050px
+    );
+
+  background-attachment: fixed;
+}
+
+html[data-theme="night"] {
+  background: #07111f;
+}
+
+html[data-theme="night"] body {
+  background:
+    radial-gradient(
+      circle at 75% 0%,
+      rgba(15, 126, 177, .18),
+      transparent 34rem
+    ),
+    linear-gradient(
+      180deg,
+      #06182c 0,
+      #0a2946 410px,
+      #0a192b 720px,
+      #07111f 1100px
+    );
+
+  background-attachment: fixed;
+}
+
+main {
+  background: transparent;
+}
+
+/* SEAMLESS HERO CONTINUATION */
+
+/*
+One continuous image is placed behind the hero and the beginning
+of the page. It gradually fades into the normal page background.
+*/
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  position: relative;
+  background: #f5fafc !important;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  height: clamp(820px, 58vw, 1120px);
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(3, 12, 32, .60) 0%,
+      rgba(3, 17, 43, .32) 50%,
+      rgba(3, 17, 43, .10) 100%
+    ),
+    url("hero-background.jpg");
+
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 48%,
+      rgba(0, 0, 0, .93) 58%,
+      rgba(0, 0, 0, .68) 72%,
+      rgba(0, 0, 0, .30) 87%,
+      transparent 100%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 48%,
+      rgba(0, 0, 0, .93) 58%,
+      rgba(0, 0, 0, .68) 72%,
+      rgba(0, 0, 0, .30) 87%,
+      transparent 100%
+    );
+
+  filter:
+    brightness(1.06)
+    saturate(1.06);
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero,
+main,
+.theme-toggle {
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  background: transparent !important;
+  border-bottom-color: transparent;
+}
+
+main {
+  background: transparent !important;
+}
+
+
+/* Night version */
+
+html[data-theme="night"] body {
+  background: #07111f !important;
+}
+
+html[data-theme="night"] body::before {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(2, 8, 22, .80) 0%,
+      rgba(3, 13, 34, .60) 50%,
+      rgba(3, 13, 34, .30) 100%
+    ),
+    url("hero-background.jpg");
+
+  filter:
+    brightness(.86)
+    saturate(1.12);
+}
+
+
+@media (max-width: 720px) {
+  body::before {
+    height: 900px;
+    background-position: 58% top;
+
+    -webkit-mask-image:
+      linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 46%,
+        rgba(0, 0, 0, .75) 68%,
+        transparent 100%
+      );
+
+    mask-image:
+      linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 46%,
+        rgba(0, 0, 0, .75) 68%,
+        transparent 100%
+      );
+  }
+}
+
+/* SMALLER IMAGE WITH BLUE FADE */
+
+/*
+The image uses its full width rather than being enlarged to cover
+a very tall area. It ends sooner and fades into the blue page
+background underneath it.
+*/
+
+html[data-theme="day"] body,
+html:not([data-theme]) body {
+  background:
+    linear-gradient(
+      180deg,
+      #071a33 0,
+      #0b355b 480px,
+      #176b94 720px,
+      #64afd0 980px,
+      #b8dfea 1320px,
+      #edf7fa 1720px,
+      #f5fafc 2050px
+    ) !important;
+}
+
+body::before {
+  height: clamp(680px, 49vw, 900px);
+
+  background-size: 100% auto;
+  background-position: center top;
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 52%,
+      rgba(0, 0, 0, .92) 62%,
+      rgba(0, 0, 0, .68) 75%,
+      rgba(0, 0, 0, .32) 88%,
+      transparent 100%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 52%,
+      rgba(0, 0, 0, .92) 62%,
+      rgba(0, 0, 0, .68) 75%,
+      rgba(0, 0, 0, .32) 88%,
+      transparent 100%
+    );
+}
+
+
+/* Night mode uses the same transition with deeper blue tones. */
+
+html[data-theme="night"] body {
+  background:
+    linear-gradient(
+      180deg,
+      #030b18 0,
+      #061a30 500px,
+      #082d4b 760px,
+      #0a3655 1020px,
+      #091e32 1420px,
+      #07111f 1800px
+    ) !important;
+}
+
+
+@media (max-width: 720px) {
+  body::before {
+    height: 720px;
+
+    /*
+    Slight enlargement is retained on narrow screens so the image
+    does not leave empty horizontal space.
+    */
+    background-size: auto 720px;
+    background-position: 56% top;
+
+    -webkit-mask-image:
+      linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 48%,
+        rgba(0, 0, 0, .82) 66%,
+        rgba(0, 0, 0, .38) 84%,
+        transparent 100%
+      );
+
+    mask-image:
+      linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 48%,
+        rgba(0, 0, 0, .82) 66%,
+        rgba(0, 0, 0, .38) 84%,
+        transparent 100%
+      );
+  }
+
+  html[data-theme="day"] body,
+  html:not([data-theme]) body {
+    background:
+      linear-gradient(
+        180deg,
+        #071a33 0,
+        #0b355b 430px,
+        #247da3 700px,
+        #8bc7dd 1000px,
+        #e3f2f7 1450px,
+        #f5fafc 1750px
+      ) !important;
+  }
+}
+
+/* FINAL HERO SIZE AND TOGGLE POSITION */
+
+/*
+The theme icon stays in the top-right corner of the page.
+It is not fixed, so it disappears normally when scrolling.
+*/
+
+body > #theme-toggle,
+.theme-toggle {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  z-index: 10000;
+}
+
+
+/*
+Use a shorter image layer and begin fading it earlier.
+The image disappears into the existing blue background.
+*/
+
+body::before {
+  height: clamp(560px, 42vw, 720px);
+
+  background-size: 100% auto;
+  background-position: center top;
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 34%,
+      rgba(0, 0, 0, .92) 43%,
+      rgba(0, 0, 0, .68) 55%,
+      rgba(0, 0, 0, .38) 68%,
+      rgba(0, 0, 0, .14) 78%,
+      transparent 88%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 34%,
+      rgba(0, 0, 0, .92) 43%,
+      rgba(0, 0, 0, .68) 55%,
+      rgba(0, 0, 0, .38) 68%,
+      rgba(0, 0, 0, .14) 78%,
+      transparent 88%
+    );
+}
+
+
+/* Keep the button and transition balanced on smaller screens. */
+
+@media (max-width: 720px) {
+  body > #theme-toggle,
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+  }
+
+  body::before {
+    height: 610px;
+    background-size: auto 610px;
+    background-position: 56% top;
+
+    -webkit-mask-image:
+      linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 30%,
+        rgba(0, 0, 0, .86) 42%,
+        rgba(0, 0, 0, .52) 58%,
+        rgba(0, 0, 0, .18) 73%,
+        transparent 84%
+      );
+
+    mask-image:
+      linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 30%,
+        rgba(0, 0, 0, .86) 42%,
+        rgba(0, 0, 0, .52) 58%,
+        rgba(0, 0, 0, .18) 73%,
+        transparent 84%
+      );
+  }
+}
+
+/* BEGIN FINAL MODALITY LABEL PALETTES */
+/* These selectors mirror the existing Space palette under the final taxonomy labels. */
+.category-dna-sequence {
+  --category-background: #eef5ff;
+  --category-border: #aac9ef;
+  --category-accent: #2869c7;
+  --category-badge: #dae9fc;
+}
+
+.category-expression,
+.category-bulk-expression {
+  --category-background: #fff4e9;
+  --category-border: #edc69a;
+  --category-accent: #b96512;
+  --category-badge: #ffe3c3;
+}
+
+.category-functional-genomics,
+.category-functional {
+  --category-background: #edf9f1;
+  --category-border: #acd8b8;
+  --category-accent: #267842;
+  --category-badge: #d7f0df;
+}
+
+.category-knowledge-graph,
+.category-ontologies {
+  --category-background: #f5efff;
+  --category-border: #cbb5e9;
+  --category-accent: #7044ac;
+  --category-badge: #e8dcfa;
+}
+
+.category-biomedical-text {
+  --category-background: #fff0f4;
+  --category-border: #e8b5c4;
+  --category-accent: #ac3e61;
+  --category-badge: #f9dce4;
+}
+
+.category-multimodal {
+  --category-background: #eaf9fb;
+  --category-border: #a5d7dd;
+  --category-accent: #177684;
+  --category-badge: #d3eff2;
+}
+
+.category-networks {
+  --category-background: #fff0ee;
+  --category-border: #eab3ab;
+  --category-accent: #af4437;
+  --category-badge: #f9d9d4;
+}
+
+.category-protein-sequence {
+  --category-background: #edf8f6;
+  --category-border: #a5d4cb;
+  --category-accent: #187361;
+  --category-badge: #d2ede7;
+}
+
+.category-rna-sequence {
+  --category-background: #fff9e7;
+  --category-border: #e3cb88;
+  --category-accent: #8a6810;
+  --category-badge: #f5e7b6;
+}
+
+.category-regulatory-genomics {
+  --category-background: #f0f1ff;
+  --category-border: #b7bae7;
+  --category-accent: #4c50ae;
+  --category-badge: #dedff8;
+}
+
+.category-single-cell,
+.category-single-cell-expression {
+  --category-background: #fff0fa;
+  --category-border: #e1b2d2;
+  --category-accent: #9f3e7f;
+  --category-badge: #f4daeb;
+}
+/* END FINAL MODALITY LABEL PALETTES */

@@ -1,0 +1,39 @@
+# REAL COMPLETED EXAMPLE
+# This file is based on the ESM-2 embedding processed in this
+# project. Do not upload it unchanged. Copy submission.yaml and
+# describe your own embedding. The ID esm2 is already in the catalogue.
+
+schema_version: 1
+embedding_id: esm2
+display_name: ESM-2
+
+contributor:
+  name: Daniel Tabares Lopez
+  affiliation: ETH Zurich
+
+scientific:
+  category: Protein sequence
+  modality: Protein sequence
+  description: Protein sequence representation from ESM-2 650M, obtained by pooling residue-level embeddings into one vector per human protein/gene.
+  original_method: ESM-2 protein language model
+  model_checkpoint: esm2_t33_650M_UR50D
+  source_publication: https://doi.org/10.1101/2025.01.29.635607
+
+provenance:
+  species: Homo sapiens
+  identifier_before_mapping: Entrez Gene ID
+  mapping_method: Source Entrez Gene IDs were mapped to the project's enriched human master gene table. Only identifiers mapping uniquely to one Ensembl gene were retained; unmapped and ambiguous identifiers were excluded, and duplicate source rows mapping to the same final gene were averaged.
+  embedding_generated_by: Jeffrey Zhong, Lechuan Li, Ruth Dannenfelser, and Vicky Yao
+  input_data_source: UniProt human protein sequences used in the Zhong et al. gene-embedding benchmark
+  pooling_strategy: Mean pooling over amino-acid token embeddings
+
+licensing:
+  redistribution_allowed: true
+
+attestations:
+  information_is_accurate: true
+  rights_to_redistribute: true
+  no_sensitive_human_data: true
+  no_patient_level_data: true
+  source_terms_reviewed: true
+  acceptance_of_automatic_checks: true

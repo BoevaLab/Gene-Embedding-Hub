@@ -1,0 +1,25 @@
+schema_version: 1
+categories:
+- Biomedical text
+- Bulk expression
+- DNA sequence
+- Functional
+- Knowledge graph
+- Multimodal
+- Networks
+- Protein sequence
+- RNA sequence
+- Regulatory genomics
+- Single-cell expression
+aliases:
+  Expression: Bulk expression
+  Single-cell: Single-cell expression
+  DNA: DNA sequence
+  Functional Genomics: Functional
+  Knowledge: Knowledge graph
+  Literature: Biomedical text
+  Network: Networks
+  Protein: Protein sequence
+  RNA: RNA sequence
+  Regulatory: Regulatory genomics
+fallback_category: Other

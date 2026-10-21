@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+
+  <title>Gene Embedding Hub</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  />
+</head>
+
+<body>
+<!-- THEME TOGGLE START -->
+<button
+  id="theme-toggle"
+  class="theme-toggle"
+  type="button"
+  aria-label="Current theme: light. Switch to dark theme"
+  aria-pressed="false"
+>
+  ☀️
+</button>
+<!-- THEME TOGGLE END -->
+
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">
+        Unified human gene representations
+      </p>
+
+      <h1>Gene Embedding Hub</h1>
+
+      <p class="lead">
+          Browse standardized gene-level representations spanning
+          protein sequence, DNA sequence, RNA sequence, expression,
+          biomedical text, functional data, networks, ontologies,
+          regulatory genomics, knowledge graphs, single-cell, and
+          multimodal representations.
+      </p>
+      <div class="actions">
+        <a
+          class="button primary"
+          href="#contribute"
+        >
+          Contribute an embedding
+        </a>
+
+        <a
+          class="button"
+          href="https://huggingface.co/datasets/BoevaLab/Gene-Embedding-Hub-dataset"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Core Dataset
+        </a>
+      </div>
+
+      <p class="notice">
+        Community contributions are automatically checked for
+        compliance with the technical policy. Inclusion is not
+        independent scientific or legal endorsement.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section
+      class="stats"
+      aria-label="Catalog summary"
+    >
+      <article>
+        <strong id="stat-count">—</strong>
+        <span>embedding sets</span>
+      </article>
+
+      <article>
+        <strong id="stat-genes">—</strong>
+        <span>maximum genes</span>
+      </article>
+
+      <article>
+        <strong id="stat-dims">—</strong>
+        <span>dimension range</span>
+      </article>
+    </section>
+
+    <section class="controls">
+      <input
+        id="search"
+        type="search"
+        placeholder="Search names, categories, modalities, or methods"
+        aria-label="Search catalog"
+      />
+
+      <select
+        id="category"
+        aria-label="Filter by category"
+      >
+        <option value="All">
+          All categories
+        </option>
+      </select>
+    </section>
+
+    <p
+      id="result-count"
+      class="result-count"
+    ></p>
+
+    <section
+      id="grid"
+      class="grid"
+      aria-live="polite"
+    ></section>
+
+    <section
+      class="contribute"
+      id="contribute"
+    >
+      <p class="section-label">
+        Community contribution
+      </p>
+
+      <h2>Submit a gene embedding</h2>
+
+      <p class="contribute-intro">
+        Prepare one standardized package and upload it directly to
+        the library-owned Hugging Face Dataset as a Pull Request.
+      </p>
+
+      <div class="instruction-grid">
+        <article class="instruction-card">
+          <span class="step-number">1</span>
+
+          <h3>Prepare one folder</h3>
+
+          <pre><code>&lt;embedding_id&gt;/
+├── embeddings.npz
+├── genes.tsv
+├── README.md
+└── submission.yaml</code></pre>
+
+          <p>
+            The embedding ID must contain 3–80 lowercase letters,
+            numbers, dots, underscores, or hyphens and must begin
+            with a letter or number.
+          </p>
+            <p>
+              A <code>metadata.json</code> file is automatically
+              generated and saved in the embedding's folder after
+              acceptance.
+            </p>
+
+        </article>
+
+        <article class="instruction-card">
+          <span class="step-number">2</span>
+
+          <h3>Check the package contract</h3>
+
+          <ul>
+            <li>
+              <code>embeddings.npz</code> contains exactly one
+              two-dimensional <code>float32</code> array named
+              <code>embeddings</code>.
+            </li>
+
+            <li>
+              <code>genes.tsv</code> contains one unique
+              <code>ensembl_gene_id</code> column whose rows match
+              the matrix rows.
+            </li>
+            <li>
+              <code>submission.yaml</code> provides the scientific
+              context and provenance needed to understand the
+              embedding and how it was produced.
+            </li>
+
+
+            <li>
+              <code>README.md</code> documents how the representation
+              was produced.
+            </li>
+          </ul>
+
+
+            <p>
+              <a
+                class="button"
+                href="gene-mapping-tutorial.html"
+              >
+                Open gene mapping tutorial
+              </a>
+            </p>
+        </article>
+
+                <article class="instruction-card">
+          <span class="step-number">3</span>
+
+          <h3>Complete the submission template</h3>
+
+          
+          <p>
+            Download <code>submission.yaml</code>, replace every
+            placeholder and keep the embedding ID identical to the
+            folder name. Submitted values are checked automatically
+            against the package.
+          </p>
+</article>
+
+                <article class="instruction-card">
+          <span class="step-number">4</span>
+
+          <h3>Upload as a Pull Request</h3>
+          <ol>
+            <li>
+              Open the Hugging Face uploader using the button below.
+            </li>
+
+            <li>
+              Upload the folder
+              <code>&lt;embedding_id&gt;</code>.
+            </li>
+
+            <li>
+              Select <strong>Open as a pull request</strong>.
+            </li>
+          </ol>
+        </article>
+
+        <article class="instruction-card full-width">
+          <span class="step-number">5</span>
+
+          <h3>Automatic validation and publication</h3>
+
+          <p>
+            The package structure, metadata consistency, Ensembl
+            identifiers, matrix shape, numeric validity, licensing,
+            provenance, and attestations are checked automatically.
+          </p>
+
+          <p>
+            A strict PASS is stored in the central Dataset and added
+            to this catalog.
+          </p>
+        </article>
+      </div>
+
+      <div class="button-row">
+        <a
+          class="button primary"
+          href="https://huggingface.co/datasets/BoevaLab/Gene-Embedding-Hub-contributions-staging/upload/main"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Hugging Face uploader
+        </a>
+
+        <a
+          class="button"
+          href="submission.yaml"
+          download
+        >
+          Download submission template
+        </a>
+        <a
+          class="button"
+          href="submission.example.yaml"
+          download
+        >Download completed example</a>
+      </div>
+
+      <details class="cli-alternative">
+        <summary>Command-line alternative example</summary>
+
+        <p>
+          Before running this example, replace
+          <code>my_embedding_v1</code> with the name of your existing
+          local embedding folder in both path arguments.
+        </p>
+
+        <pre><code>hf upload \
+  BoevaLab/Gene-Embedding-Hub-contributions-staging \
+  ./my_embedding_v1 \
+  my_embedding_v1 \
+  --repo-type dataset \
+  --create-pr \
+  --commit-message "Submit gene embedding"</code></pre>
+      </details>
+    </section>
+  </main>
+
+  <dialog id="detail-dialog">
+    <button
+      id="close-detail"
+      class="close"
+      aria-label="Close"
+    >
+      ×
+    </button>
+
+    <div id="detail-content"></div>
+  </dialog>
+
+  <script src="app.js"></script>
+<script src="theme.js"></script>
+</body>
+</html>
