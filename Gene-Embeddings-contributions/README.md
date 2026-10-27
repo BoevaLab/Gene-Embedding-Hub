@@ -23,7 +23,7 @@ The automatic workflow treats inclusion as **technical policy
 compliance**, not independent scientific or legal endorsement.
 
 Contributor instructions are available in
-[`docs/HUGGINGFACE\_SUBMISSION.md`](docs/HUGGINGFACE_SUBMISSION.md).
+[`docs/HUGGINGFACE/_SUBMISSION.md`](docs/HUGGINGFACE_SUBMISSION.md).
 
 ## Python environment
 
