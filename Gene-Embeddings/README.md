@@ -34,7 +34,7 @@ The processing pipelines generate the standardized files published on Hugging Fa
 
 ## Master gene table
 
-The construction pipeline for the standardized human master gene table is documented in [`master\\\\\\\_gene\\\\\\\_table/`](master_gene_table/README.md).
+The construction pipeline for the standardized human master gene table is documented in [`master_gene_table/`](master_gene_table/README.md).
 
 ## Analysis environment
 
